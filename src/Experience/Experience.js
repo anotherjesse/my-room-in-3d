@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import { Pane } from 'tweakpane'
+import { VRButton } from 'three/examples/jsm/webxr/VRButton.js';
 
 import Time from './Utils/Time.js'
 import Sizes from './Utils/Sizes.js'
@@ -84,7 +85,7 @@ export default class Experience
         
         // Debug
         // this.config.debug = window.location.hash === '#debug'
-        this.config.debug = this.config.width > 420
+        this.config.debug = false; //this.config.width > 420
     }
 
     setStats()
@@ -117,7 +118,8 @@ export default class Experience
     setRenderer()
     {
         this.renderer = new Renderer({ rendererInstance: this.rendererInstance })
-
+        document.body.appendChild(VRButton.createButton(this.renderer.instance));
+        this.renderer.instance.xr.enabled = true
         this.targetElement.appendChild(this.renderer.instance.domElement)
     }
 

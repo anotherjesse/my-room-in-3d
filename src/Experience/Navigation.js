@@ -147,7 +147,7 @@ export default class Navigation
             window.removeEventListener('touchmove', this.view.onTouchMove)
         }
 
-        window.addEventListener('touchstart', this.view.onTouchStart)
+        // window.addEventListener('touchstart', this.view.onTouchStart)
 
         /**
          * Context menu
