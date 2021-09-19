@@ -52,7 +52,8 @@ export default class Experience
             this.resize()
         })
 
-        this.update()
+        var inst = this;
+        this.renderer.instance.setAnimationLoop(() => inst.update());
     }
 
     // static getInstance(_options = {})
@@ -154,10 +155,6 @@ export default class Experience
         if(this.navigation)
             this.navigation.update()
 
-        window.requestAnimationFrame(() =>
-        {
-            this.update()
-        })
     }
 
     resize()
